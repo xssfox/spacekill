@@ -30,7 +30,7 @@ ssize_t write(int fd, const void *buf, size_t count){
 
     write_return = real_write(fd, buf, count); // Run the write normally
 
-    if (write_return == -1 || (errno == ENOSPC || errno == EDQUOT)){ // If any error occurs check if it's a disk space or quota issue has occured
+    if (write_return == -1 && (errno == ENOSPC || errno == EDQUOT)){ // If any error occurs check if it's a disk space or quota issue has occured
         
         //try to get filename - only works on linux
         char filename[PATH_MAX+1];

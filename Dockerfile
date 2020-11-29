@@ -9,7 +9,7 @@ FROM python:3
 
 WORKDIR /usr/src/app
 
-COPY test.py ./
+COPY example.py ./
 COPY --from=spacekill /usr/src/app/spacekill.so /usr/lib/spacekill.so
 ENV LD_PRELOAD=/usr/lib/spacekill.so
-CMD [ "python", "./test.py" ]
+CMD [ "python", "./example.py" ]
